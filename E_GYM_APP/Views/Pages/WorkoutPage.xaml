@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="E_GYM_APP.Views.Pages.WorkoutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vms="clr-namespace:E_GYM_APP.ViewModels"
+    Title="Workout Page">
+    <ContentPage.BindingContext>
+        <vms:WorkoutViewModel />
+    </ContentPage.BindingContext>
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <VerticalStackLayout Margin="5,20">
+                <Label
+                    Margin="20,10,0,20"
+                    FontAttributes="Bold"
+                    FontFamily="Poppins"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"
+                    Text="What Do You Want To Train"
+                    VerticalOptions="Center" />
+                <Border
+                    Margin="0,10,0,20"
+                    HeightRequest="150"
+                    StrokeShape="RoundRectangle 20"
+                    WidthRequest="315">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0.0" Color="#92A3FD" />
+                            <GradientStop Offset="1.0" Color="#9DCEFF" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Padding="15,5,0,10"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            HorizontalOptions="Start"
+                            Text="Chest Workout"
+                            VerticalOptions="Start" />
+                        <Label
+                            Grid.Row="1"
+                            Padding="15,0,0,15"
+                            FontSize="Header"
+                            HorizontalOptions="Start"
+                            Text="5 Exercises | 30 mins"
+                            VerticalOptions="Start" />
+                        <Image
+                            Grid.RowSpan="3"
+                            Margin="0,20,20,0"
+                            HeightRequest="100"
+                            HorizontalOptions="End"
+                            Source="chest.png"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                        <Button
+                            Grid.Row="2"
+                            Margin="15,10,15,0"
+                            BackgroundColor="White"
+                            BorderWidth="2"
+                            Command="{Binding ChestExerciseCommand}"
+                            CornerRadius="50"
+                            HorizontalOptions="Start"
+                            Text="View More"
+                            TextColor="#92A3FD"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                    </Grid>
+                </Border>
+                <Border
+                    Margin="0,10,0,20"
+                    HeightRequest="150"
+                    StrokeShape="RoundRectangle 20"
+                    WidthRequest="315">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0.0" Color="#92A3FD" />
+                            <GradientStop Offset="1.0" Color="#9DCEFF" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Padding="15,5,0,10"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            HorizontalOptions="Start"
+                            Text="Back Workout"
+                            VerticalOptions="Start" />
+                        <Label
+                            Grid.Row="1"
+                            Padding="15,0,0,15"
+                            FontSize="Header"
+                            HorizontalOptions="Start"
+                            Text="4 Exercises | 24 mins"
+                            VerticalOptions="Start" />
+                        <Image
+                            Grid.RowSpan="3"
+                            Margin="0,20,20,0"
+                            HeightRequest="100"
+                            HorizontalOptions="End"
+                            Source="back.png"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                        <Button
+                            Grid.Row="2"
+                            Margin="15,10,15,0"
+                            BackgroundColor="White"
+                            BorderWidth="2"
+                            Command="{Binding BackExerciseCommand}"
+                            CornerRadius="50"
+                            HorizontalOptions="Start"
+                            Text="View More"
+                            TextColor="#92A3FD"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                    </Grid>
+                </Border>
+                <Border
+                    Margin="0,10,0,20"
+                    HeightRequest="150"
+                    StrokeShape="RoundRectangle 20"
+                    WidthRequest="315">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0.0" Color="#92A3FD" />
+                            <GradientStop Offset="1.0" Color="#9DCEFF" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Padding="15,5,0,10"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            HorizontalOptions="Start"
+                            Text="Core Workout"
+                            VerticalOptions="Start" />
+                        <Label
+                            Grid.Row="1"
+                            Padding="15,0,0,15"
+                            FontSize="Header"
+                            HorizontalOptions="Start"
+                            Text="4 Exercises | 24 mins"
+                            VerticalOptions="Start" />
+                        <Image
+                            Grid.RowSpan="3"
+                            Margin="0,20,20,0"
+                            HeightRequest="100"
+                            HorizontalOptions="End"
+                            Source="core.png"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                        <Button
+                            Grid.Row="2"
+                            Margin="15,10,15,0"
+                            BackgroundColor="White"
+                            BorderWidth="2"
+                            Command="{Binding CoreExerciseCommand}"
+                            CornerRadius="50"
+                            HorizontalOptions="Start"
+                            Text="View More"
+                            TextColor="#92A3FD"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                    </Grid>
+                </Border>
+                <Border
+                    Margin="0,10,0,20"
+                    HeightRequest="150"
+                    StrokeShape="RoundRectangle 20"
+                    WidthRequest="315">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0.0" Color="#92A3FD" />
+                            <GradientStop Offset="1.0" Color="#9DCEFF" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Padding="15,5,0,10"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            HorizontalOptions="Start"
+                            Text="Shoulder Workout"
+                            VerticalOptions="Start" />
+                        <Label
+                            Grid.Row="1"
+                            Padding="15,0,0,15"
+                            FontSize="Header"
+                            HorizontalOptions="Start"
+                            Text="4 Exercises | 24 mins"
+                            VerticalOptions="Start" />
+                        <Image
+                            Grid.RowSpan="3"
+                            Margin="0,20,20,0"
+                            HeightRequest="100"
+                            HorizontalOptions="End"
+                            Source="shoulder.png"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                        <Button
+                            Grid.Row="2"
+                            Margin="15,10,15,0"
+                            BackgroundColor="White"
+                            BorderWidth="2"
+                            Command="{Binding ShoulderExerciseCommand}"
+                            CornerRadius="50"
+                            HorizontalOptions="Start"
+                            Text="View More"
+                            TextColor="#92A3FD"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                    </Grid>
+                </Border>
+                <Border
+                    Margin="0,10,0,20"
+                    HeightRequest="150"
+                    StrokeShape="RoundRectangle 20"
+                    WidthRequest="315">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0.0" Color="#92A3FD" />
+                            <GradientStop Offset="1.0" Color="#9DCEFF" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Padding="15,5,0,10"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            HorizontalOptions="Start"
+                            Text="Biceps Workout"
+                            VerticalOptions="Start" />
+                        <Label
+                            Grid.Row="1"
+                            Padding="15,0,0,15"
+                            FontSize="Header"
+                            HorizontalOptions="Start"
+                            Text="4 Exercises | 24 mins"
+                            VerticalOptions="Start" />
+                        <Image
+                            Grid.RowSpan="3"
+                            Margin="0,20,20,0"
+                            HeightRequest="100"
+                            HorizontalOptions="End"
+                            Source="biceps.png"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                        <Button
+                            Grid.Row="2"
+                            Margin="15,10,15,0"
+                            BackgroundColor="White"
+                            BorderWidth="2"
+                            Command="{Binding BicepsExerciseCommand}"
+                            CornerRadius="50"
+                            HorizontalOptions="Start"
+                            Text="View More"
+                            TextColor="#92A3FD"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+        <ActivityIndicator
+            AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            HorizontalOptions="Center"
+            IsRunning="{Binding IsLoading}"
+            IsVisible="{Binding IsLoading}"
+            VerticalOptions="Start"
+            Color="Blue" />
+    </AbsoluteLayout>
+</ContentPage>

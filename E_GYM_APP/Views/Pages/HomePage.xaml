@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="E_GYM_APP.Views.Pages.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vms="clr-namespace:E_GYM_APP.ViewModels"
+    x:DataType="vms:HomePageViewModel">
+    <Shell.TitleView>
+        <HorizontalStackLayout>
+            <Image
+                BackgroundColor="White"
+                HeightRequest="30"
+                Source="splash.svg"
+                WidthRequest="30" />
+            <Label
+                Padding="10,0,200,0"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                Text="E_GYM"
+                VerticalOptions="Center" />
+            <ImageButton
+                Command="{Binding ChangeAppThemeCommand}"
+                Source="{Binding Icon}"
+                WidthRequest="30" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <HorizontalStackLayout Padding="10,0" Spacing="5">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Start"
+                    Text="Hi,"
+                    TextColor="#896CFE"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="Username"
+                    Padding="0,0,180,0"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Start"
+                    Text="{Binding User.Username}"
+                    TextColor="#896CFE"
+                    VerticalOptions="Center" />
+
+            </HorizontalStackLayout>
+
+            <Border
+                BackgroundColor="#92A3FD"
+                HeightRequest="200"
+                StrokeShape="RoundRectangle 50"
+                WidthRequest="320">
+                <Grid Padding="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout Grid.Column="0" Spacing="5">
+                        <Label
+                            FontSize="Medium"
+                            Text="Start Strong And"
+                            TextColor="{StaticResource White}" />
+                        <Label
+                            FontSize="Medium"
+                            Text="Set Your Fitness"
+                            TextColor="{StaticResource White}" />
+                        <Label
+                            FontSize="Medium"
+                            Text="Goals"
+                            TextColor="{StaticResource White}" />
+                    </VerticalStackLayout>
+                    <Image
+                        Grid.Column="1"
+                        HeightRequest="120"
+                        HorizontalOptions="End"
+                        Source="start_exercise.png"
+                        VerticalOptions="Center"
+                        WidthRequest="100" />
+                    <Button
+                        Grid.ColumnSpan="1"
+                        Margin="0,10,0,0"
+                        BackgroundColor="{StaticResource White}"
+                        Command="{Binding GoToExerciseCommand}"
+                        CornerRadius="20"
+                        HorizontalOptions="Start"
+                        Text="Go To Exercise"
+                        TextColor="#92A3FD"
+                        VerticalOptions="End" />
+                </Grid>
+            </Border>
+            <Border
+                BackgroundColor="#92A3FD"
+                HeightRequest="200"
+                StrokeShape="RoundRectangle 50"
+                WidthRequest="320">
+                <Grid Padding="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout Grid.Column="0" Spacing="5">
+                        <Label
+                            FontSize="Medium"
+                            Text="BMI Value"
+                            TextColor="{StaticResource White}" />
+                        <Label
+                            Padding="20,0,0,0"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{Binding BMI, StringFormat='{0:F2}'}"
+                            TextColor="{StaticResource White}" />
+                        <Label
+                            FontSize="Medium"
+                            Text="{Binding Description}"
+                            TextColor="{StaticResource White}" />
+                    </VerticalStackLayout>
+                    <Image
+                        Grid.Column="1"
+                        HeightRequest="120"
+                        HorizontalOptions="End"
+                        Source="bmi.png"
+                        VerticalOptions="Center"
+                        WidthRequest="100" />
+                    <Button
+                        Grid.ColumnSpan="1"
+                        Margin="0,10,0,0"
+                        BackgroundColor="{StaticResource White}"
+                        Command="{Binding UpdateProfileCommand}"
+                        CornerRadius="20"
+                        HorizontalOptions="Start"
+                        Text="Go To Profile"
+                        TextColor="#92A3FD"
+                        VerticalOptions="End" />
+                </Grid>
+            </Border>
+            <Border
+                Margin="0,0,0,10"
+                BackgroundColor="#92A3FD"
+                HeightRequest="60"
+                StrokeShape="RoundRectangle 20"
+                WidthRequest="320">
+                <Grid ColumnDefinitions="*, Auto">
+                    <Label
+                        Grid.Column="0"
+                        Padding="20,0"
+                        FontAttributes="Bold"
+                        FontSize="Subtitle"
+                        Text="Today Target"
+                        TextColor="{StaticResource White}"
+                        VerticalOptions="Center" />
+                    <Button
+                        Grid.Column="1"
+                        Margin="0,0,10,0"
+                        BackgroundColor="{StaticResource White}"
+                        Command="{Binding CheckCommand}"
+                        CornerRadius="20"
+                        Text="Check"
+                        TextColor="#92A3FD"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Border>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="320" />
+                    <RowDefinition />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border
+                    BackgroundColor="#92A3FD"
+                    HeightRequest="300"
+                    StrokeShape="RoundRectangle 20"
+                    WidthRequest="150">
+                    <Border.Shadow>
+                        <Shadow
+                            Brush="Black"
+                            Opacity="0.3"
+                            Radius="40"
+                            Offset="20,20" />
+                    </Border.Shadow>
+                    <VerticalStackLayout>
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            HorizontalTextAlignment="Center"
+                            Text="Required Water Intake"
+                            TextColor="{StaticResource White}" />
+                        <Label
+                            Padding="12"
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            HorizontalOptions="Start"
+                            Text="4 liters"
+                            TextColor="{StaticResource White}" />
+                        <Image Source="water.png" />
+                    </VerticalStackLayout>
+                </Border>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        Margin="12"
+                        BackgroundColor="#92A3FD"
+                        HeightRequest="150"
+                        StrokeShape="RoundRectangle 20"
+                        WidthRequest="160">
+                        <Border.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.3"
+                                Radius="40"
+                                Offset="20,20" />
+                        </Border.Shadow>
+                        <VerticalStackLayout>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                HorizontalTextAlignment="Center"
+                                Text="Required Sleep"
+                                TextColor="{StaticResource White}" />
+                            <Label
+                                Padding="12"
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                HorizontalOptions="Center"
+                                Text="8 hrs"
+                                TextColor="{StaticResource White}" />
+                            <Image Source="Sleep.jpeg" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border
+                        Grid.Row="1"
+                        HeightRequest="150"
+                        StrokeShape="RoundRectangle 20"
+                        WidthRequest="160">
+                        <Border.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.3"
+                                Radius="40"
+                                Offset="20,20" />
+                        </Border.Shadow>
+                        <VerticalStackLayout BackgroundColor="#92A3FD">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                HorizontalTextAlignment="Center"
+                                Text="Required Calories"
+                                TextColor="{StaticResource White}" />
+                            <Label
+                                Padding="12"
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                HorizontalOptions="Center"
+                                Text="2500 kcal"
+                                TextColor="{StaticResource White}" />
+                            <Image
+                                HeightRequest="60"
+                                Source="calorie.jpg"
+                                WidthRequest="70" />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

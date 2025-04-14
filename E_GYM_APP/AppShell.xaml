@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="E_GYM_APP.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:E_GYM_APP"
+    xmlns:pages="clr-namespace:E_GYM_APP.Views.Pages"
+    Title="E_GYM_APP"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarHasShadow="True">
+
+    <TabBar>
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent Title="WELCOME" ContentTemplate="{DataTemplate pages:HomePage}" />
+        </Tab>
+        <Tab Title="Workout" Icon="workout.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:WorkoutPage}" Route="workout" />
+        </Tab>
+        <Tab Title="Profile" Icon="profile.png">
+            <ShellContent
+                Title="WELCOME"
+                ContentTemplate="{DataTemplate pages:Profile}"
+                Route="myprofile" />
+        </Tab>
+        <Tab Title="Schedule" Icon="event.png">
+            <ShellContent Title="WELCOME" ContentTemplate="{DataTemplate pages:WorkoutSchedule}" />
+        </Tab>
+        <Tab Title="My Workout Page" Icon="myworkout.png">
+            <ShellContent
+                Title="My Workouts"
+                ContentTemplate="{DataTemplate pages:WorkoutShowPage}"
+                Route="myworkout" />
+        </Tab>
+    </TabBar>
+</Shell>

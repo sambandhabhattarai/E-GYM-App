@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="E_GYM_APP.Views.Pages.WorkoutShowPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vms="clr-namespace:E_GYM_APP.ViewModels"
+    Title="My Workouts">
+
+    <ContentPage.BindingContext>
+        <vms:WorkoutShowViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <CollectionView ItemsSource="{Binding Exercises}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Margin="5"
+                            Padding="10"
+                            BorderColor="Gray"
+                            CornerRadius="10"
+                            HasShadow="True">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Offset="0.0" Color="#92A3FD" />
+                                    <GradientStop Offset="1.0" Color="#9DCEFF" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <VerticalStackLayout Padding="10">
+                                <Label FontSize="Large" Text="{Binding ExerciseName}" />
+                                <Image
+                                    HeightRequest="100"
+                                    IsAnimationPlaying="True"
+                                    Source="{Binding ImageSource}" />
+                                <Button
+                                    Margin="0,20,0,20"
+                                    BackgroundColor="{StaticResource White}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vms:WorkoutShowViewModel}}, Path=StartCommand}"
+                                    CommandParameter="{Binding}"
+                                    Text="Start"
+                                    TextColor="#92A3FD" />
+                                <Button
+                                    BackgroundColor="{StaticResource White}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.CompleteWorkoutCommand}"
+                                    CommandParameter="{Binding .}"
+                                    TextColor="#92A3FD">
+                                    <Button.Triggers>
+                                        <DataTrigger
+                                            Binding="{Binding IsCompleted}"
+                                            TargetType="Button"
+                                            Value="True">
+                                            <Setter Property="Text" Value="Completed" />
+                                        </DataTrigger>
+                                        <DataTrigger
+                                            Binding="{Binding IsCompleted}"
+                                            TargetType="Button"
+                                            Value="False">
+                                            <Setter Property="Text" Value="Mark as Complete" />
+                                        </DataTrigger>
+                                    </Button.Triggers>
+                                </Button>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <VerticalStackLayout
+                HorizontalOptions="Center"
+                IsVisible="{Binding IsWorkoutListEmpty}"
+                Spacing="10"
+                VerticalOptions="Center">
+                <Image
+                    Margin="50"
+                    HeightRequest="120"
+                    HorizontalOptions="Center"
+                    Source="noworkout.png"
+                    WidthRequest="120" />
+                <Label
+                    FontSize="Title"
+                    HorizontalOptions="Center"
+                    Text="No workouts added yet." />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

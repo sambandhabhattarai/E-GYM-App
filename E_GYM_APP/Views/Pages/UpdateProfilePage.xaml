@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="E_GYM_APP.Views.Pages.UpdateProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vms="clr-namespace:E_GYM_APP.ViewModels"
+    Title="UpdateProfilePage"
+    x:DataType="vms:UpdateProfileViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Border
+                BackgroundColor="#92A3FD"
+                HeightRequest="350"
+                StrokeShape="RoundRectangle 0,0,100,250"
+                WidthRequest="400">
+                <Image Source="update_profile.png" />
+            </Border>
+            <Label
+                Padding="0,20"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Text="Let's Update Profile" />
+            <Border
+                BackgroundColor="#92A3FD"
+                HeightRequest="150"
+                StrokeShape="RoundRectangle 70"
+                WidthRequest="140">
+                <Image
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    Source="{Binding ProfilePictureSource}"
+                    VerticalOptions="Center"
+                    Aspect="AspectFill"
+                    WidthRequest="200" />
+            </Border>
+            <Button
+                Margin="10"
+                Command="{Binding PickAndSaveProfilePictureCommand}"
+                HorizontalOptions="Center"
+                Text="Change Profile Picture"
+                VerticalOptions="Center" />
+            <Frame
+                Margin="0,10,0,0"
+                Padding="0"
+                BorderColor="Gray"
+                CornerRadius="15"
+                HasShadow="False"
+                HeightRequest="50">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        Grid.Column="0"
+                        Margin="10,0"
+                        HeightRequest="24"
+                        HorizontalOptions="Start"
+                        Source="profile.png"
+                        VerticalOptions="Center"
+                        WidthRequest="24" />
+                    <Entry
+                        Grid.Column="1"
+                        Keyboard="Text"
+                        Placeholder="Name"
+                        Text="{Binding User.Username}"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            <Frame
+                Margin="0,10,0,0"
+                Padding="0"
+                BorderColor="Gray"
+                CornerRadius="15"
+                HasShadow="False"
+                HeightRequest="50">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        Grid.Column="0"
+                        Margin="10,0"
+                        HeightRequest="24"
+                        HorizontalOptions="Start"
+                        Source="weight.png"
+                        VerticalOptions="Center"
+                        WidthRequest="24" />
+                    <Entry
+                        Grid.Column="1"
+                        Keyboard="Numeric"
+                        Placeholder="Your Weight in Kg"
+                        Text="{Binding User.Weight}"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            <Frame
+                Margin="0,10,0,0"
+                Padding="0"
+                BorderColor="Gray"
+                CornerRadius="15"
+                HasShadow="False"
+                HeightRequest="50">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        Grid.Column="0"
+                        Margin="10,0"
+                        HeightRequest="24"
+                        HorizontalOptions="Start"
+                        Source="height.png"
+                        VerticalOptions="Center"
+                        WidthRequest="24" />
+                    <Entry
+                        Grid.Column="1"
+                        Keyboard="Numeric"
+                        Placeholder="Your Height in meters"
+                        Text="{Binding User.Height}"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            <Button
+                Margin="20,100,20,0"
+                BackgroundColor="#86a8e7"
+                Command="{Binding UpdateUserInfoCommand}"
+                CornerRadius="25"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                Text="Update"
+                TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

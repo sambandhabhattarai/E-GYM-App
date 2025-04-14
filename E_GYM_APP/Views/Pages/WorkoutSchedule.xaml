@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="E_GYM_APP.Views.Pages.WorkoutSchedule"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cal="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+    xmlns:vms="clr-namespace:E_GYM_APP.ViewModels"
+    Title="Calendar">
+    <ContentPage.BindingContext>
+        <vms:WorkoutScheduleViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <ActivityIndicator
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="{Binding IsLoading}"
+                IsVisible="{Binding IsLoading}"
+                VerticalOptions="CenterAndExpand"
+                Color="Blue" />
+            <cal:Calendar
+                CalendarLayout="Month"
+                BackgroundColor="White"
+                Events="{Binding Events}"
+                EventsScrollViewVisible="True"
+                SelectedDayBackgroundColor="Red">
+                <cal:Calendar.EventTemplate>
+                    <DataTemplate>
+                        <Border
+                            Margin="0,10,0,20"
+                            HeightRequest="100"
+                            StrokeShape="RoundRectangle 20"
+                            WidthRequest="315">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Offset="0.0" Color="#92A3FD" />
+                                    <GradientStop Offset="1.0" Color="#9DCEFF" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    FontAttributes="Bold"
+                                    FontSize="25"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding Name}"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Grid.Row="1"
+                                    FontSize="16"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding Description}"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Grid.Row="2"
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding StatusDisplay}"
+                                    TextColor="{Binding IsCompleted}"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </cal:Calendar.EventTemplate>
+            </cal:Calendar>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

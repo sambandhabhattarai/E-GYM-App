@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="E_GYM_APP.Views.Pages.Profile"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vms="clr-namespace:E_GYM_APP.ViewModels"
+    Title="My Profile"
+    x:DataType="vms:ProfilePageViewModel"
+    Shell.TabBarIsVisible="True">
+    <VerticalStackLayout>
+        <ActivityIndicator
+            HorizontalOptions="CenterAndExpand"
+            IsRunning="{Binding IsLoading}"
+            IsVisible="{Binding IsLoading}"
+            VerticalOptions="Start"
+            Color="Blue" />
+
+        <Border
+            BackgroundColor="#B3A0FF"
+            HeightRequest="350"
+            StrokeShape="Rectangle"
+            WidthRequest="400">
+            <Grid>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Border
+                        HeightRequest="100"
+                        StrokeShape="RoundRectangle 50"
+                        WidthRequest="100">
+                        <Image
+                            Aspect="AspectFill"
+                            HeightRequest="100"
+                            Source="{Binding ProfilePictureSource}"
+                            WidthRequest="100" />
+                    </Border>
+                    <Label
+                        Padding="15,5,0,0"
+                        FontAttributes="Bold"
+                        FontFamily="Poppins"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="{Binding User.Username}" />
+                    <Label
+                        Padding="15,5,0,0"
+                        FontFamily="Poppins"
+                        FontSize="Medium"
+                        Text="{Binding User.Email}" />
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+        <HorizontalStackLayout Grid.Row="1" Padding="75,10,10,10">
+            <Border
+                Margin="20,0,20,0"
+                BackgroundColor="{StaticResource White}"
+                HeightRequest="60"
+                StrokeShape="RoundRectangle 20"
+                WidthRequest="90">
+                <Border.Shadow>
+                    <Shadow
+                        Brush="{StaticResource Black}"
+                        Opacity="0.2"
+                        Radius="40"
+                        Offset="20,20" />
+                </Border.Shadow>
+                <Grid ColumnDefinitions="auto,auto" RowDefinitions="auto,auto">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="{Binding User.Height}"
+                        TextColor="#92A3FD" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Padding="18,10"
+                        Text="Height"
+                        TextColor="{StaticResource Black}" />
+                </Grid>
+            </Border>
+            <Border
+                BackgroundColor="{StaticResource White}"
+                HeightRequest="60"
+                StrokeShape="RoundRectangle 20"
+                WidthRequest="90">
+                <Border.Shadow>
+                    <Shadow
+                        Brush="{StaticResource Black}"
+                        Opacity="0.2"
+                        Radius="40"
+                        Offset="20,20" />
+                </Border.Shadow>
+                <Grid ColumnDefinitions="auto,auto" RowDefinitions="auto,auto">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="{Binding User.Weight}"
+                        TextColor="#92A3FD" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Padding="18,10"
+                        Text="Weight"
+                        TextColor="{StaticResource Black}" />
+                </Grid>
+            </Border>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding EditProfileCommand}" />
+            </HorizontalStackLayout.GestureRecognizers>
+            <Image
+                Margin="20"
+                Source="profile.png"
+                WidthRequest="40" />
+            <Label
+                Margin="5,25"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Edit Profile" />
+            <ImageButton
+                Margin="150,0,0,0"
+                Command="{Binding EditProfileCommand}"
+                Source="profile_arrow.png"
+                WidthRequest="10" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+            </HorizontalStackLayout.GestureRecognizers>
+            <Image
+                Margin="20"
+                Source="enter.png"
+                WidthRequest="40" />
+            <Label
+                Margin="5,25"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Logout" />
+            <ImageButton
+                Margin="180,0,0,0"
+                Command="{Binding LogoutCommand}"
+                Source="profile_arrow.png"
+                WidthRequest="10" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

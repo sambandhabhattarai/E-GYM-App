@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="E_GYM_APP.Views.Pages.SecondWelcomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="SecondWelcomePage">
+    <Grid>
+        <VerticalStackLayout Padding="0" Spacing="0">
+            <Border
+                BackgroundColor="#92A3FD"
+                HeightRequest="350"
+                StrokeShape="RoundRectangle 0,0,100,250"
+                WidthRequest="400">
+                <Image Source="welcome_track.jpeg" />
+            </Border>
+            <Label
+                Padding="0,20"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Text="Tracking" />
+            <Label
+                Padding="20"
+                HorizontalTextAlignment="Center"
+                Text="Don't worry you can set a timer for each day to complete the exercise. You will get a reminder every day to complete the exercise." />
+        </VerticalStackLayout>
+        <ActivityIndicator
+            x:Name="LoadingIndicator"
+            HorizontalOptions="Center"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Start"
+            Color="Blue" />
+        <Border
+            Margin="20"
+            BackgroundColor="#92A3FD"
+            HeightRequest="50"
+            HorizontalOptions="End"
+            Stroke="{StaticResource White}"
+            StrokeShape="RoundRectangle 25"
+            StrokeThickness="2"
+            VerticalOptions="End"
+            WidthRequest="50">
+            <ImageButton
+                Margin="12,10,10,10"
+                Clicked="NextButton_Clicked"
+                HeightRequest="50"
+                Source="next.png"
+                WidthRequest="20" />
+        </Border>
+    </Grid>
+</ContentPage>

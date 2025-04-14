@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="E_GYM_APP.Views.Pages.FirstWelcomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="FirstWelcomePage">
+    <Grid>
+        <VerticalStackLayout Padding="0" Spacing="0">
+            <Border
+                BackgroundColor="#92A3FD"
+                HeightRequest="350"
+                StrokeShape="RoundRectangle 0,0,100,250"
+                WidthRequest="400">
+                <Image Source="welcome.png" />
+            </Border>
+            <Label
+                Padding="0,20"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Text="Workouts" />
+            <Label
+                Padding="20"
+                HorizontalTextAlignment="Center"
+                Text="Don't worry if you have trouble finding workouts, We can help you determine different workouts and find ways to do it." />
+        </VerticalStackLayout>
+        <Border
+            Margin="20"
+            BackgroundColor="#92A3FD"
+            HeightRequest="50"
+            HorizontalOptions="End"
+            Stroke="{StaticResource White}"
+            StrokeShape="RoundRectangle 25"
+            StrokeThickness="2"
+            VerticalOptions="End"
+            WidthRequest="50">
+            <ImageButton
+                Margin="12,10,10,10"
+                Clicked="NextButton_Clicked"
+                HeightRequest="50"
+                Source="next.png"
+                WidthRequest="20" />
+        </Border>
+    </Grid>
+</ContentPage>
